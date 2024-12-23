@@ -1,4 +1,4 @@
-.body {
+.container {
     display: flex;
     justify-content: center;
     
@@ -11,10 +11,19 @@
     
 }
 
-.cell {
+.cells {
     border: 1px solid black;
     background-color: lightgray;
     width: 50px;
     height: 50px;
     
+}
+
+/*:hover will only change the color of the div when the mouse is over it, it does not keep the color change when mousing off the div*/
+
+.cellsNew {
+    border: 1px solid black;
+    background-color: aqua;
+    width: 50px;
+    height: 50px;
 }
