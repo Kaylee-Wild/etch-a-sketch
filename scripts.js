@@ -3,22 +3,20 @@ function createGrid(rows = 16) {
     gameArea.innerHTML = ''; // Clear existing grid
 
     const totalCells = rows * rows;
+    const cellSize = 500 / rows;
 
     for (let i = 0; i < totalCells; i++) {
-        const gameCells = document.createElement('div');
-        gameCells.classList.add('gameCells');
-        gameArea.appendChild(gameCells);
-        gameCells.addEventListener('mouseover', () => {
-            gameCells.style.backgroundColor = "blue";
+        const gameCell = document.createElement('div');
+        gameCell.classList.add('gameCells');
+        gameCell.style.width = `${cellSize}px`;
+        gameCell.style.height = `${cellSize}px`;
+        gameArea.appendChild(gameCell);
+        
+        gameCell.addEventListener('mouseover', () => {
+            gameCell.style.backgroundColor = "blue";
         });
     }
-
-    const cellSize = 500 / rows;
-    document.querySelectorAll('.gameCells').forEach(item => {
-        item.style.width = `${cellSize}px`;
-        item.style.height = `${cellSize}px`;
-    });
-}
+};
 
 function changeGridSize() {    
     const rows = prompt("Enter the number of rows/columns (1-100):", 16);
