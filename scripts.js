@@ -1,33 +1,37 @@
-const grid = document.querySelector('.grid');
+function createGrid(rows = 16) {
+    const gameArea = document.querySelector('.gameArea');
+    gameArea.innerHTML = ''; // Clear existing grid
 
-function changeGridSize() {
-    let rowNum = prompt("Enter the size of the grid you want");
-    //user will enter a number
-    
-    return parseInt(rowNum);
-    //return user's number
-};
+    const totalCells = rows * rows;
 
-    let rowNum = changeGridSize();
+    for (let i = 0; i < totalCells; i++) {
+        const gameCells = document.createElement('div');
+        gameCells.classList.add('gameCells');
+        gameArea.appendChild(gameCells);
+        gameCells.addEventListener('mouseover', () => {
+            gameCells.style.backgroundColor = "blue";
+        });
+    }
 
-    const cellsPerRow = rowNum;
-    const totalCells = rowNum * rowNum;
-
-    const cellSize = (100 / cellsPerRow) - 1;
-
-grid.innerHTML = ' ';
-
-for (let i = 0; i < totalCells; i++) {
-    const cellStyle = document.createElement('div');
-    cellStyle.classList.add('cellStyle');
-
-    cellStyle.style.width = `${cellSize}%`
-    cellStyle.style.height = `${cellSize}%`
-
-    grid.appendChild(cellStyle);
-
-    cellStyle.addEventListener('mouseover', () => {
-        cellStyle.style.backgroundColor = "blue"
-    })
+    const cellSize = 500 / rows;
+    document.querySelectorAll('.gameCells').forEach(item => {
+        item.style.width = `${cellSize}px`;
+        item.style.height = `${cellSize}px`;
+    });
 }
 
+function changeGridSize() {    
+    const rows = prompt("Enter the number of rows/columns (1-100):", 16);
+
+    if (rows < 1 || rows > 100 || isNaN(rows)) {
+        alert("Enter a valid number between 1 and 100");
+        return;
+    }
+
+    createGrid(parseInt(rows));
+
+}
+
+window.onload = () => {
+    createGrid();
+};

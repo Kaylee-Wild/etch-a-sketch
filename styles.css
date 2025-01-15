@@ -1,38 +1,22 @@
-
-
-/*need to get cells to expand and contact to fill the space rather then give them a set width and height*/
 body {
-    display: flex;
     height: 100vh;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
-.grid {
-    width: 850px;
-    height: 850px;
+.gameArea {
     display: flex;
     flex-wrap: wrap;
-    align-content: flex-start;
-}
-
-.cellStyle {
-    border: 1px solid black;
-    background-color: lightgray;
-    box-sizing: border-box;
+    width: 500px;
+    height: 500px;
     
 }
 
-#gridSizeBtn {
-    display: flex;
-    justify-content: center;
-    margin: 50px;
-}
-
-#btn {
-    background-color: orange;
-    padding: 15px;
-    font-size: medium;
-    color: white;
-    border: none
+.gameCells {
+    border: 1px solid black;
+    background-color: lightgray;
+    width: auto;
+    height: auto;
+    flex: 1 0 auto
 }
