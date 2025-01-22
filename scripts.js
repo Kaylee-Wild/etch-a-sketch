@@ -13,7 +13,7 @@ function createGrid(rows = 16) {
         gameArea.appendChild(gameCell);
         
         gameCell.addEventListener('mouseover', () => {
-            gameCell.style.backgroundColor = "blue";
+            gameCell.style.backgroundColor = "black";
         });
     }
 };
@@ -30,6 +30,68 @@ function changeGridSize() {
 
 }
 
+function clearGrid() {
+    const gameCell = document.querySelectorAll(".gameCells");
+
+    gameCell.forEach(gameCell => {
+        gameCell.style.backgroundColor = "white";
+    });
+
+}
+
 window.onload = () => {
     createGrid();
 };
+
+
+
+
+
+/*
+To Do Check List
+
+color option for random RGB (Rainbow)
+    create button that when clicked >
+    mouseover event listener
+    gameCell.style.backgroundColor = random color instead of a set color
+
+
+
+shading and lightening button (Darken and Lighten)
+    create a button that when clicked >
+    mouseover event listener
+    gameCell.style.backgroundColor = color 10% darkened or lightend
+
+
+
+color wheel - create a new branch for this
+    https://www.youtube.com/watch?v=1INseXMXuvE
+
+
+
+
+eraser
+    create a button that when clicked >
+    mouseover event listener
+    gameCell.style.backgroundColor = white
+
+
+
+
+clear grid button
+    create a button in html
+    when button is clicked > run clearGrid()
+    clearGrid() changes the background style for everything with the class gameCell to white
+
+
+
+
+
+rather than a pop up, slider for selecting grid size - create a new branch for this
+    https://www.youtube.com/watch?v=3Eb6FtjkZ_k
+
+
+
+
+
+*/
